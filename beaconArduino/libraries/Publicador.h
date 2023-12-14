@@ -24,7 +24,7 @@ private:
   // ............................................................
 public:
   EmisoraBLE laEmisora {
-	"BAJOQUETA", //  nombre emisora
+	"Sonda Bajoqueta", //  nombre emisora
 	  0x004c, // fabricanteID (Apple)
 	  4 // txPower
 	  };
@@ -38,9 +38,9 @@ public:
   // ............................................................
   // ............................................................
   enum MedicionesID  {
-	CO2 = 11,
-	TEMPERATURA = 12,
-	RUIDO = 13
+	Ozono = 4,
+	co = 5,
+	
   };
 
   // ............................................................
@@ -66,7 +66,7 @@ public:
 	//
 	// 1. empezamos anuncio
 	//
-	uint16_t major = (MedicionesID::CO2) ;
+	uint16_t major = (MedicionesID::Ozono) ;
 	(*this).laEmisora.emitirAnuncioIBeacon( (*this).beaconUUID, 
 											major,
 											valorCO2, // minor
@@ -89,7 +89,7 @@ public:
   void publicarTemperatura( int16_t valorTemperatura,
 							uint8_t contador, long tiempoEspera ) {
 
-	uint16_t major = (MedicionesID::TEMPERATURA << 8) + contador;
+	uint16_t major = (MedicionesID::co << 8) + contador;
 	(*this).laEmisora.emitirAnuncioIBeacon( (*this).beaconUUID, 
 											major,
 											valorTemperatura, // minor

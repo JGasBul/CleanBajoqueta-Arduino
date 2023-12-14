@@ -138,7 +138,7 @@ void loop () {
   int valorCO2 = elMedidor.medirCO2();
 
   //Sobreescribir el valor enviado por el indicado
-  valorCO2= 69;
+  valorCO2= 17;
   
   elPublicador.publicarCO2( valorCO2,
 							cont,
